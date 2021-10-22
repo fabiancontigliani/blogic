@@ -24,7 +24,7 @@ node {
     stage('npm install') {
         sh "./mvnw -ntp com.github.eirslett:frontend-maven-plugin:npm"
     }
-    stage('Install Snyk CLI') {
+    /*stage('Install Snyk CLI') {
        sh '''
            curl -Lo ./snyk $(curl -s https://api.github.com/repos/snyk/snyk/releases/latest | grep "browser_download_url.*snyk-linux" | cut -d ':' -f 2,3 | tr -d \" | tr -d ' ')
            chmod +x snyk
@@ -35,7 +35,7 @@ node {
     }
     stage('Snyk monitor') {
        sh './snyk monitor --all-projects'
-    }
+    }*/
     stage('backend tests') {
         try {
             sh "./mvnw -ntp verify -P-webapp"
