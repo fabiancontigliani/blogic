@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 node {
-    stage('checkout') {
+    stage('checkout 2') {
         checkout scm
     }
 
@@ -50,7 +50,7 @@ node {
     }
 
     def dockerImage
-    stage('publish docker') {
+    stage('publish to docker hub') {
         withCredentials([usernamePassword(credentialsId: 'myregistry-login', passwordVariable: 'DOCKER_REGISTRY_PWD', usernameVariable: 'DOCKER_REGISTRY_USER')]) {
             sh "./mvnw -ntp jib:build"
         }
