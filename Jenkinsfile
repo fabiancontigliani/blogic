@@ -44,8 +44,15 @@ node {
         }
     }
 
-    stage('package and deploy') {
-        sh "./mvnw -ntp com.heroku.sdk:heroku-maven-plugin:2.0.5:deploy -DskipTests -Pprod -Dheroku.buildpacks=heroku/jvm -Dheroku.appName=pure-springs-23922"
+    stage('packaging') {
+        sh "./mvnw -ntp verify -P-webapp -Pprod -DskipTests"
         archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+    }
+
+    def dockerImage
+    stage('publish docker') {
+        // A pre-requisite to this step is to setup authentication to the docker registry
+        // https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods
+        sh "./mvnw -ntp -Pprod verify jib:build"
     }
 }
