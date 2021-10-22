@@ -44,6 +44,9 @@
     "creationTimestamp": 1634857236183,
     "jwtSecretKey": "NTliZGU1MjY2Njc0ZTFkM2RkZTk2M2I1ZTlkODM0ZjUwZjQxMDNmZDM0OTI1YWY0YjM5YTMxMmNmZjIxZjk2NWEzZTg0ODI1OTMyNWM4ZDJiMTY1M2RmNWY2YzMwMjdlZmQ1ODFhYWEwMzQ0ZjFkM2RlZmFiMGYxYjlhNjAyZjM=",
     "devServerPort": 4200,
-    "lastLiquibaseTimestamp": 1634857416000
+    "lastLiquibaseTimestamp": 1634857416000,
+    "herokuAppName": "pure-springs-23922",
+    "herokuDeployType": "git",
+    "herokuJavaVersion": "11"
   }
 }
