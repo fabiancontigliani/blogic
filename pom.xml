@@ -581,7 +581,6 @@
                                 <password>${DOCKER_REGISTRY_PWD}</password>
                             </auth>
                         </to>
-
                         <container>
                             <entrypoint>
                                 <shell>bash</shell>
